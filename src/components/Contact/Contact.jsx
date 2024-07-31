@@ -4,20 +4,16 @@ import css from "./Contact.module.css";
 export default function Contact({ name, number }) {
   return (
     <>
-      <div className={css.sectionContact}>
-        <div className={css.contactBox}>
-          <p className={css.contactName}>
-            <FaUserAlt />
-            {name}
-          </p>
-          <p className={css.contactNumber}>
-            <FaPhone />
-            {number}
-          </p>
-        </div>
-        <divdiv className={css.contactButton}>
-          <button type="submit">Delete</button>
-        </divdiv>
+      <div className={css.contactBox}>
+        <p className={css.contactNameBox}>
+          <FaUserAlt />
+
+          <span className={css.contactName}> {name}</span>
+        </p>
+        <p className={css.contactNumberBox}>
+          <FaPhone />
+          <span className={css.contactNumber}> {number}</span>
+        </p>
       </div>
     </>
   );

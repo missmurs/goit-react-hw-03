@@ -1,14 +1,22 @@
 import Contact from "../Contact/Contact";
-export default function ContactList({ contacts }) {
+import css from "./ContactList.module.css";
+export default function ContactList({ contacts, onDelete }) {
   return (
-    <ul>
-      {contacts.map((contact) => {
-        return (
-          <li key={contact.id}>
+    <div>
+      <ul>
+        {contacts.map((contact) => (
+          <li className={css.sectionContact} key={contact.id}>
             <Contact name={contact.name} number={contact.number} />
+            <button
+              className={css.contactButton}
+              type="submit"
+              onClick={() => onDelete(contact.id)}
+            >
+              Delete
+            </button>
           </li>
-        );
-      })}
-    </ul>
+        ))}
+      </ul>
+    </div>
   );
 }

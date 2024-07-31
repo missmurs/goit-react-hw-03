@@ -8,12 +8,7 @@
   border-radius: 5px;
   justify-content: space-between;
 }
-
-.contactNameBox {
-  padding: 10px;
-  margin: 0;
-}
-.contactNumberBox {
-  padding: 0 10px 10px 10px;
-  margin: 0;
+.contactButton {
+  padding: 5px 10px;
+  margin: 10px;
 }
