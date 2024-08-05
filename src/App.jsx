@@ -1,7 +1,7 @@
 import ContactForm from "./components/ContactForm/ContactForm";
 import ContactList from "./components/ContactList/ContactList";
 import SearchBox from "./components/SearchBox/SearchBox";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function App() {
   const contactListItem = [
@@ -11,11 +11,19 @@ export default function App() {
     { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
   ];
 
-  const [contactList, setcontactList] = useState(contactListItem);
+  const [contactList, setcontactList] = useState(() => {
+    const savedContact = localStorage.getItem("saved-feedback");
+    return savedContact ? JSON.parse(savedContact) : contactListItem;
+  });
   const [nameFilter, setNameFilter] = useState("");
   const contactListFilter = contactList.filter((contact) =>
     contact.name.toLowerCase().includes(nameFilter.toLowerCase())
   );
+
+  useEffect(() => {
+    localStorage.setItem("saved-feedback", JSON.stringify(contactList));
+  }, [contactList]);
+  console.log(contactList);
 
   const contactDelete = (userId) => {
     setcontactList((prevContacts) => {
@@ -24,10 +32,7 @@ export default function App() {
   };
   const addContact = (newContact) => {
     setcontactList((prevContacts) => {
-      return [
-        ...prevContacts,
-        { name: newContact, number: "111-11-11", id: Date.now() },
-      ];
+      return [...prevContacts, newContact];
     });
   };
 
