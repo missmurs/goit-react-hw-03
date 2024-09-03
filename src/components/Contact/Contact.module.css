@@ -17,3 +17,19 @@
   padding: 0 10px 10px 10px;
   margin: 0;
 }
+.contactButton {
+  padding: 5px 10px;
+  margin: 10px;
+}
+.sectionContact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  border: 1px solid black;
+  width: 300px;
+  margin: 20px 0;
+  padding: 0;
+  border-radius: 5px;
+  justify-content: space-between;
+}
